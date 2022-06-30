@@ -1,9 +1,16 @@
-name: cookbook-dev
+name: cla-cookbook-dev
 channels:
   - conda-forge
 dependencies:
   - jupyter-book
   - jupyterlab
+  - numpy
+  - xarray
+  - dask
+  - intake
+  - intake-esm
+  - pandas
+  - ipython
   - pip
   - pip:
       - sphinx-pythia-theme
