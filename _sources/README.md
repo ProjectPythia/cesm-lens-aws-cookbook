@@ -1,33 +1,34 @@
-<img src="thumbnail.png" alt="thumbnail" width="300"/>
+<img src="notebooks/images/logos/NCAR-contemp-logo-blue.svg" alt="NCAR logo" width="500"/>
 
-# (Replace_with_your_title) Cookbook
+# CESM LENS on AWS Cookbook
 
-[![nightly-build](https://github.com/ProjectPythiaCookbooks/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythiaCookbooks/cookbook-template/actions/workflows/nightly-build.yaml)
-[![Binder](https://binder-staging.2i2c.cloud/badge_logo.svg)](https://binder-staging.2i2c.cloud/v2/gh/ProjectPythiaCookbooks/cookbook-template/main?labpath=notebooks)
+[![nightly-build](https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
+[![Binder](https://binder-staging.2i2c.cloud/badge_logo.svg)](https://binder-staging.2i2c.cloud/v2/gh/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/main?labpath=notebooks)
 
-This Project Pythia Cookbook covers ... (replace `...` with the main subject of your cookbook ... e.g., *working with radar data in Python*)
+This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask
 
 ## Motivation
 
-(Add a few sentences stating why this cookbook will be useful. What skills will you, "the chef", gain once you have reached the end of the cookbook?)
+The [National Center for Atmospheric Research (NCAR)](https://ncar.ucar.edu/) Community Earth System Model Large Ensemble ([CESM LENS](https://www.cesm.ucar.edu/projects/community-projects/LENS/)) dataset includes a 40-member ensemble of climate simulations for the period 1920-2100. All model runs were subject to the same radiative forcing scenario: historical up to 2005, and RCP8.5 thereafter. (RCP8.5 - Representative Concentration Pathway 8.5 - refers to the worst-case scenario considered in the [Fifth Assessment Report of the Intergovernmental Panel on Climate Change (IPCC AR5)](https://www.ipcc.ch/report/ar5/wg1/). Each of the 40 runs begins from a slightly different initial atmospheric state (created by randomly perturbing temperatures at the level of round-off error). The data comprise both surface (2D) and volumetric (3D) variables in the atmosphere, ocean, land, and ice domains.
+
+The total LENS data volume is ~500 TB, and is traditionally accessible through the NCAR Climate Data Gateway ([CDG](https://www.earthsystemgrid.org/dataset/ucar.cgd.ccsm4.CESM_CAM5_BGC_LE.html)) for download or via web services. A subset (currently ~70 TB compressed) including the most useful variables is now [freely available on AWS S3](https://registry.opendata.aws/ncar-cesm-lens/) thanks to the [AWS Public Dataset Program](https://aws.amazon.com/opendata/open-data-sponsorship-program/).
 
 ## Authors
 
-[First Author](@first-author), [Second Author](@second-author), etc. *Acknowledge primary content authors here*
+[See contributors to the `NCAR/cesm-lens-aws` repository](https://github.com/NCAR/cesm-lens-aws/graphs/contributors)
 
 ### Contributors
 
-<a href="https://github.com/ProjectPythiaCookbooks/cookbook-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythiaCookbooks/cookbook-template" />
+<a href="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ProjectPythiaCookbooks/cesm-lens-aws-cookbook" />
 </a>
 
 ## Structure
-(State one or more sections that will comprise the notebook. E.g., *This cookbook is broken up into two main sections - "Foundations" and "Example Workflows."* Then, describe each section below.)
 
-### Section 1 ( Replace with the title of this section, e.g. "Foundations" )
-(Add content for this section, e.g., "The foundational content includes ... ")
+### Foundations
+There is one notebook in this section that describes how to access the CESM LENS data from AWS using Intake ESM. It includes examples of using an enhanced catalog.
 
-### Section 2 ( Replace with the title of this section, e.g. "Example workflows" )
+### Example workflows
 (Add content for this section, e.g., "Example workflows include ... ")
 
 ## Running the Notebooks
@@ -55,19 +56,19 @@ If you are interested in running this material locally on your computer, you wil
 
 (Replace "cookbook-example" with the title of your cookbooks)   
 
-1. Clone the `https://github.com/ProjectPythiaCookbooks/cookbook-example` repository:
+1. Clone the `https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook` repository:
 
    ```bash
-    git clone https://github.com/ProjectPythiaCookbooks/cookbook-example.git
+    git clone https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook.git
     ```  
-1. Move into the `cookbook-example` directory
+1. Move into the `cesm-lens-aws-cookbook` directory
     ```bash
-    cd cookbook-example
+    cd cesm-lens-aws-cookbook
     ```  
 1. Create and activate your conda environment from the `environment.yml` file
     ```bash
     conda env create -f environment.yml
-    conda activate cookbook-example
+    conda activate cla-cookbook-dev
     ```  
 1.  Move into the `notebooks` directory and start up Jupyterlab
     ```bash
