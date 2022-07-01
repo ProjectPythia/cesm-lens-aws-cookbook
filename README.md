@@ -1,4 +1,5 @@
 <img src="notebooks/images/logos/NCAR-contemp-logo-blue.svg" alt="NCAR logo" width="500"/>
+<br>
 
 # CESM LENS on AWS Cookbook
 
