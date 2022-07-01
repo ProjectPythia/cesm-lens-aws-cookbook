@@ -1,4 +1,5 @@
 <img src="notebooks/images/logos/NCAR-contemp-logo-blue.svg" alt="NCAR logo" width="500"/>
+<br>
 
 # CESM LENS on AWS Cookbook
 
@@ -29,7 +30,7 @@ The total LENS data volume is ~500 TB, and is traditionally accessible through t
 There is one notebook in this section that describes how to access the CESM LENS data from AWS using Intake ESM. It includes examples of using an enhanced catalog.
 
 ### Example workflows
-(Add content for this section, e.g., "Example workflows include ... ")
+This section contains an example of using this dataset to recreate two plots from a paper published in BAMS.
 
 ## Running the Notebooks
 You can either run the notebook using [Binder](https://mybinder.org/) or on your local machine.

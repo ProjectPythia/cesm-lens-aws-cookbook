@@ -332,6 +332,13 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
      Extract data needed to construct Figure 2
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#figure-2">
+   Figure 2
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#read-grid-cell-areas">
      Read grid cell areas
@@ -352,12 +359,44 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
      Get observations for Figure 2 (HadCRUT4; Morice et al. 2012)
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-figure-2">
+     Plotting Figure 2
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting-figure-2">
-   Plotting Figure 2
+  <a class="reference internal nav-link" href="#figure-4">
+   Figure 4
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-linear-trend-for-winter-seasons">
+     Compute linear trend for winter seasons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-ensemble-trends">
+     Compute ensemble trends
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-observations-for-figure-4-nasa-giss-gistemp">
+     Get observations for Figure 4 (NASA GISS GisTemp)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-observed-trends">
+     Compute observed trends
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-figure-4">
+     Plotting Figure 4
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
@@ -433,6 +472,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
@@ -443,6 +483,8 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">cmaps</span>  <span class="c1"># for NCL colormaps</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
@@ -452,7 +494,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 <div class="section" id="create-and-connect-to-dask-distributed-cluster">
 <h2>Create and Connect to Dask Distributed Cluster<a class="headerlink" href="#create-and-connect-to-dask-distributed-cluster" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>This is where you begin your first section of material, loosely tied to your objectives stated up front. Tie together your notebook as a narrative, with interspersed Markdown text, images, and more as necessary,</p>
+<p>Here we’ll use a dask cluster to parallelize our analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span>
@@ -572,6 +614,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="figure-2">
+<h2>Figure 2<a class="headerlink" href="#figure-2" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <div class="section" id="read-grid-cell-areas">
 <h3>Read grid cell areas<a class="headerlink" href="#read-grid-cell-areas" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <p>Cell size varies with latitude, so this must be accounted for when computing the global mean.</p>
@@ -724,9 +769,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="plotting-figure-2">
-<h2>Plotting Figure 2<a class="headerlink" href="#plotting-figure-2" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<h3>Plotting Figure 2<a class="headerlink" href="#plotting-figure-2" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Global surface temperature anomaly (1961-90 base period) for individual ensemble members, and observations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
@@ -778,26 +823,226 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="figure-4">
+<h2>Figure 4<a class="headerlink" href="#figure-4" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="section" id="compute-linear-trend-for-winter-seasons">
+<h3>Compute linear trend for winter seasons<a class="headerlink" href="#compute-linear-trend-for-winter-seasons" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear_trend</span><span class="p">(</span><span class="n">da</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">):</span>
+    <span class="n">da_chunk</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="n">dim</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+    <span class="n">trend</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+        <span class="n">calc_slope</span><span class="p">,</span>
+        <span class="n">da_chunk</span><span class="p">,</span>
+        <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[[</span><span class="n">dim</span><span class="p">]],</span>
+        <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[[]],</span>
+        <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">],</span>
+        <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">trend</span>
+
+
+<span class="k">def</span> <span class="nf">calc_slope</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;ufunc to be used by linear_trend&quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+    <span class="c1"># drop missing values (NaNs) from x and y</span>
+    <span class="n">finite_indexes</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">finite_indexes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">finite_indexes</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">finite_indexes</span><span class="p">],</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">slope</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compute-ensemble-trends">
+<h3>Compute ensemble trends<a class="headerlink" href="#compute-ensemble-trends" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">t_20c</span><span class="p">,</span> <span class="n">t_rcp</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">seasons</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979&quot;</span><span class="p">,</span> <span class="s2">&quot;2012&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;QS-DEC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="c1"># Include only full seasons from 1979 and 2012</span>
+<span class="n">seasons</span> <span class="o">=</span> <span class="n">seasons</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979&quot;</span><span class="p">,</span> <span class="s2">&quot;2012&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">winter_seasons</span> <span class="o">=</span> <span class="n">seasons</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">seasons</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">seasons</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">12</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">winter_trends</span> <span class="o">=</span> <span class="n">linear_trend</span><span class="p">(</span>
+    <span class="n">winter_seasons</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+<span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">winter_seasons</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+
+<span class="c1"># Compute ensemble mean from the first 30 members</span>
+<span class="n">winter_trends_mean</span> <span class="o">=</span> <span class="n">winter_trends</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member_id</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make sure that we have 34 seasons:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">winter_seasons</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">==</span> <span class="mi">34</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-observations-for-figure-4-nasa-giss-gistemp">
+<h3>Get observations for Figure 4 (NASA GISS GisTemp)<a class="headerlink" href="#get-observations-for-figure-4-nasa-giss-gistemp" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>This is observational time series data for comparison with ensemble average (NASA GISS Surface Temperature Analysis, https://data.giss.nasa.gov/gistemp/).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obsDataURL</span> <span class="o">=</span> <span class="s2">&quot;https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download, unzip, and load file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;wget &quot;</span> <span class="o">+</span> <span class="n">obsDataURL</span><span class="p">)</span>
+
+<span class="n">obsDataFileName</span> <span class="o">=</span> <span class="n">obsDataURL</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;gunzip &quot;</span> <span class="o">+</span> <span class="n">obsDataFileName</span><span class="p">)</span>
+
+<span class="n">obsDataFileName</span> <span class="o">=</span> <span class="n">obsDataFileName</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">obsDataFileName</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remap longitude range from [-180, 180] to [0, 360] for plotting purposes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="p">((</span><span class="n">ds</span><span class="o">.</span><span class="n">lon</span> <span class="o">+</span> <span class="mi">360</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span><span class="p">))</span><span class="o">.</span><span class="n">sortby</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compute-observed-trends">
+<h3>Compute observed trends<a class="headerlink" href="#compute-observed-trends" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Include only full seasons from 1979 through 2012:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_seasons</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979&quot;</span><span class="p">,</span> <span class="s2">&quot;2012&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;QS-DEC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">obs_seasons</span> <span class="o">=</span> <span class="n">obs_seasons</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979&quot;</span><span class="p">,</span> <span class="s2">&quot;2012&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">obs_winter_seasons</span> <span class="o">=</span> <span class="n">obs_seasons</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">obs_seasons</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">obs_seasons</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">12</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">obs_winter_seasons</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And compute observed winter trends:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_winter_trends</span> <span class="o">=</span> <span class="n">linear_trend</span><span class="p">(</span>
+    <span class="n">obs_winter_seasons</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+<span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_winter_seasons</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="n">obs_winter_trends</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-figure-4">
+<h3>Plotting Figure 4<a class="headerlink" href="#plotting-figure-4" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Global maps of historical (1979 - 2012) boreal winter (DJF) surface air trends:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contour_levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">color_map</span> <span class="o">=</span> <span class="n">cmaps</span><span class="o">.</span><span class="n">ncl_default</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_map_plot</span><span class="p">(</span><span class="n">nplot_rows</span><span class="p">,</span> <span class="n">nplot_cols</span><span class="p">,</span> <span class="n">plot_index</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">plot_label</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Create a single map subplot. &quot;&quot;&quot;</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nplot_rows</span><span class="p">,</span> <span class="n">nplot_cols</span><span class="p">,</span> <span class="n">plot_index</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">(</span><span class="n">central_longitude</span> <span class="o">=</span> <span class="mi">180</span><span class="p">))</span>
+    <span class="n">cplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span>
+                         <span class="n">levels</span> <span class="o">=</span> <span class="n">contour_levels</span><span class="p">,</span>
+                         <span class="n">cmap</span> <span class="o">=</span> <span class="n">color_map</span><span class="p">,</span>
+                         <span class="n">extend</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span>
+                         <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">plot_label</span><span class="p">,</span> <span class="n">fontSize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cplot</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate plot (may take a while as many individual maps are generated)</span>
+<span class="n">numPlotRows</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">numPlotCols</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">figWidth</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">figHeight</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">numPlotRows</span><span class="p">,</span> <span class="n">numPlotCols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">figWidth</span><span class="p">,</span><span class="n">figHeight</span><span class="p">))</span>
+
+<span class="n">lats</span> <span class="o">=</span> <span class="n">winter_trends</span><span class="o">.</span><span class="n">lat</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">winter_trends</span><span class="o">.</span><span class="n">lon</span>
+
+<span class="c1"># Create ensemble member plots</span>
+<span class="k">for</span> <span class="n">ensemble_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">plot_data</span> <span class="o">=</span> <span class="n">winter_trends</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member_id</span> <span class="o">=</span> <span class="n">ensemble_index</span><span class="p">)</span>
+    <span class="n">plot_index</span> <span class="o">=</span> <span class="n">ensemble_index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">plot_label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">plot_index</span><span class="p">)</span>
+    <span class="n">plotRow</span> <span class="o">=</span> <span class="n">ensemble_index</span> <span class="o">//</span> <span class="n">numPlotCols</span>
+    <span class="n">plotCol</span> <span class="o">=</span> <span class="n">ensemble_index</span> <span class="o">%</span> <span class="n">numPlotCols</span>
+    <span class="c1"># Retain axes objects for figure colorbar</span>
+    <span class="n">cplot</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="n">plotRow</span><span class="p">,</span> <span class="n">plotCol</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_map_plot</span><span class="p">(</span><span class="n">numPlotRows</span><span class="p">,</span> <span class="n">numPlotCols</span><span class="p">,</span> <span class="n">plot_index</span><span class="p">,</span> <span class="n">plot_data</span><span class="p">,</span> <span class="n">plot_label</span><span class="p">)</span>
+
+<span class="c1"># Create plots for the ensemble mean, observations, and a figure color bar.</span>
+<span class="n">cplot</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_map_plot</span><span class="p">(</span><span class="n">numPlotRows</span><span class="p">,</span> <span class="n">numPlotCols</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="n">winter_trends_mean</span><span class="p">,</span> <span class="s1">&#39;EM&#39;</span><span class="p">)</span>
+
+<span class="n">lats</span> <span class="o">=</span> <span class="n">obs_winter_trends</span><span class="o">.</span><span class="n">lat</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">obs_winter_trends</span><span class="o">.</span><span class="n">lon</span>
+<span class="n">cplot</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_map_plot</span><span class="p">(</span><span class="n">numPlotRows</span><span class="p">,</span> <span class="n">numPlotCols</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">obs_winter_trends</span><span class="o">.</span><span class="n">tempanomaly</span><span class="p">,</span> <span class="s1">&#39;OBS&#39;</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cplot</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">shrink</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">pad</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;1979-2012 DJF surface air temperature trends (K/34 years)&#39;</span><span class="p">,</span> <span class="n">fontSize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">contour_levels</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">contour_levels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Close our client:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>Add one final <code class="docutils literal notranslate"><span class="pre">---</span></code> marking the end of your body of content, and then conclude with a brief single paragraph summarizing at a high level the key pieces that were learned and how they tied to your objectives. Look to reiterate what the most important takeaways were.</p>
+<p>In this notebook, we used CESM LENS data hosted on AWS to recreate two key figures in the paper that describes the project.</p>
 <div class="section" id="whats-next">
 <h3>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
-<p>Let Jupyter book tie this to the next (sequential) piece of content that people could move on to down below and in the sidebar. However, if this page uniquely enables your reader to tackle other nonsequential concepts throughout this book, or even external content, link to it here!</p>
+<p>More example workflows using these datasets may be added in the future.</p>
 </div>
 </div>
 <div class="section" id="resources-and-references">
 <h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>Finally, be rigorous in your citations and references as necessary. Give credit where credit is due. Also, feel free to link to relevant external material, further reading, documentation, etc. Then you’re done! Give yourself a quick review, a high five, and send us a pull request. A few final notes:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span> <span class="pre">and</span> <span class="pre">Run</span> <span class="pre">All</span> <span class="pre">Cells...</span></code> to confirm that your notebook will cleanly run from start to finish</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span> <span class="pre">and</span> <span class="pre">Clear</span> <span class="pre">All</span> <span class="pre">Outputs...</span></code> before committing your notebook, our machines will do the heavy lifting</p></li>
-<li><p>Take credit! Provide author contact information if you’d like; if so, consider adding information here at the bottom of your notebook</p></li>
-<li><p>Give credit! Attribute appropriate authorship for referenced code, information, images, etc.</p></li>
-<li><p>Only include what you’re legally allowed: <strong>no copyright infringement or plagiarism</strong></p></li>
-</ul>
-<p>Thank you for your contribution!</p>
+<p><a class="reference external" href="https://gallery.pangeo.io/repos/NCAR/cesm-lens-aws/notebooks/kay-et-al-2015.v3.html">Original notebook in the Pangeo Gallery</a></p>
 </div>
 </div>
 
