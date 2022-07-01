@@ -4,3 +4,6 @@ parts:
   - caption: Foundations
     chapters:
       - file: notebooks/foundations/enhanced-catalog.ipynb
+  - caption: Example workflows
+    chapters:
+      - file: notebooks/example-workflows/key-figures.ipynb
