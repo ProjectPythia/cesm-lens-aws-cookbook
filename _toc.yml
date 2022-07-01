@@ -1,6 +1,6 @@
 format: jb-book
 root: README
 parts:
-  - caption: Introduction
+  - caption: Foundations
     chapters:
-      - file: notebooks/notebook-template
+      - file: notebooks/foundations/enhanced-catalog.ipynb
