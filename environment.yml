@@ -14,6 +14,8 @@ dependencies:
   - pandas
   - ipython
   - s3fs
+  - cmaps
+  - cartopy
   - pip
   - pip:
       - sphinx-pythia-theme
