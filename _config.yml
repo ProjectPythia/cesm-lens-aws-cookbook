@@ -7,6 +7,7 @@ logo: notebooks/images/logos/pythia_logo-white-rtext.svg
 email: projectpythia@ucar.edu
 copyright: '2022'
 
+description: Notebooks developed to demonstrate analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask.
 thumbnail: thumbnail.png
 tags:
   domains: climate
