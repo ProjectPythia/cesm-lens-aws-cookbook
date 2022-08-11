@@ -3,7 +3,7 @@
 # CESM LENS on AWS Cookbook
 
 [![nightly-build](https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
-[![Binder](https://binder-staging.2i2c.cloud/badge_logo.svg)](https://binder-staging.2i2c.cloud/v2/gh/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/main?labpath=notebooks)
+[![Binder](https://aws-uswest2-binder.pangeo.io/badge_logo.svg)](https://aws-uswest2-binder.pangeo.io/v2/gh/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/main?labpath=notebooks)
 
 This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask
 
