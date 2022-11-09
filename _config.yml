@@ -10,16 +10,13 @@ copyright: '2022'
 description: Notebooks developed to demonstrate analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask.
 thumbnail: thumbnail.png
 tags:
-  domains: 
+  domains:
     - climate
-  packages: 
+  packages:
     - intake-esm
 
-# Execute the notebooks upon build
 execute:
-  execute_notebooks: cache
-  timeout: 600
-  allow_errors: True
+  execute_notebooks: binder
 
 # Add a few extensions to help with parsing content
 parse:
@@ -55,7 +52,7 @@ sphinx:
           icon: fab fa-youtube-square
           type: fontawesome
       launch_buttons:
-        binderhub_url: https://aws-uswest2-binder.pangeo.io/
+        binderhub_url: https://binder.mypythia.org
         notebook_interface: jupyterlab
       extra_navbar: |
         Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
