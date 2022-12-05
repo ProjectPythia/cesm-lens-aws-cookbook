@@ -2,8 +2,8 @@
 
 # CESM LENS on AWS Cookbook
 
-[![nightly-build](https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
-[![Binder](https://aws-uswest2-binder.pangeo.io/badge_logo.svg)](https://aws-uswest2-binder.pangeo.io/v2/gh/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/main?labpath=notebooks)
+[![nightly-build](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
+[![Binder](https://aws-uswest2-binder.pangeo.io/badge_logo.svg)](https://aws-uswest2-binder.pangeo.io/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks)
 
 This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask
 
@@ -19,8 +19,8 @@ The total LENS data volume is ~500 TB, and is traditionally accessible through t
 
 ### Contributors
 
-<a href="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythiaCookbooks/cesm-lens-aws-cookbook" />
+<a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ProjectPythia/cesm-lens-aws-cookbook" />
 </a>
 
 ## Structure
@@ -56,10 +56,10 @@ If you are interested in running this material locally on your computer, you wil
 
 (Replace "cookbook-example" with the title of your cookbooks)   
 
-1. Clone the `https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook` repository:
+1. Clone the `https://github.com/ProjectPythia/cesm-lens-aws-cookbook` repository:
 
    ```bash
-    git clone https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook.git
+    git clone https://github.com/ProjectPythia/cesm-lens-aws-cookbook.git
     ```  
 1. Move into the `cesm-lens-aws-cookbook` directory
     ```bash
