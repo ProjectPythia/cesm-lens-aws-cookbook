@@ -135,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ProjectPythiaCookbooks" rel="noopener" target="_blank" title="GitHub">
+          <a class="nav-link" href="https://github.com/ProjectPythia" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
             <label class="sr-only">GitHub</label>
           </a>
@@ -253,14 +253,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook//issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook//issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/edit/main/README.md"><button
+        <a class="edit-button" href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/edit/main/README.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -350,12 +350,12 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   <a class="reference internal image-reference" href="_images/NCAR-contemp-logo-blue.svg"><img alt="NCAR logo" src="_images/NCAR-contemp-logo-blue.svg" width="500" /></a>
 <div class="tex2jax_ignore mathjax_ignore section" id="cesm-lens-on-aws-cookbook">
 <h1>CESM LENS on AWS Cookbook<a class="headerlink" href="#cesm-lens-on-aws-cookbook" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<p><a class="reference external" href="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml"><img alt="nightly-build" src="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg" /></a>
-<a class="reference external" href="https://aws-uswest2-binder.pangeo.io/v2/gh/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/main?labpath=notebooks"><img alt="Binder" src="https://aws-uswest2-binder.pangeo.io/badge_logo.svg" /></a></p>
+<p><a class="reference external" href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml"><img alt="nightly-build" src="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg" /></a>
+<a class="reference external" href="http://binder.mypythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks"><img alt="Binder" src="http://binder.mypythia.org/badge_logo.svg" /></a></p>
 <p>This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask</p>
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>The <a class="reference external" href="https://ncar.ucar.edu/">National Center for Atmospheric Research (NCAR)</a> Community Earth System Model Large Ensemble (<a class="reference external" href="https://www.cesm.ucar.edu/projects/community-projects/LENS/">CESM LENS</a>) dataset includes a 40-member ensemble of climate simulations for the period 1920-2100. All model runs were subject to the same radiative forcing scenario: historical up to 2005, and RCP8.5 thereafter. RCP8.5 - Representative Concentration Pathway 8.5 - refers to the worst-case scenario considered in the <a class="reference external" href="https://www.ipcc.ch/report/ar5/wg1/">Fifth Assessment Report of the Intergovernmental Panel on Climate Change (IPCC AR5)</a>. Each of the 40 runs begins from a slightly different initial atmospheric state (created by randomly perturbing temperatures at the level of round-off error). The data comprise both surface (2D) and volumetric (3D) variables in the atmosphere, ocean, land, and ice domains.</p>
+<p>The <a class="reference external" href="https://ncar.ucar.edu/">National Center for Atmospheric Research (NCAR)</a> Community Earth System Model Large Ensemble (<a class="reference external" href="https://www.cesm.ucar.edu/community-projects/lens">CESM LENS</a>) dataset includes a 40-member ensemble of climate simulations for the period 1920-2100. All model runs were subject to the same radiative forcing scenario: historical up to 2005, and RCP8.5 thereafter. RCP8.5 - Representative Concentration Pathway 8.5 - refers to the worst-case scenario considered in the <a class="reference external" href="https://www.ipcc.ch/report/ar5/wg1/">Fifth Assessment Report of the Intergovernmental Panel on Climate Change (IPCC AR5)</a>. Each of the 40 runs begins from a slightly different initial atmospheric state (created by randomly perturbing temperatures at the level of round-off error). The data comprise both surface (2D) and volumetric (3D) variables in the atmosphere, ocean, land, and ice domains.</p>
 <p>The total LENS data volume is ~500 TB, and is traditionally accessible through the NCAR Climate Data Gateway (<a class="reference external" href="https://www.earthsystemgrid.org/dataset/ucar.cgd.ccsm4.CESM_CAM5_BGC_LE.html">CDG</a>) for download or via web services. A subset (currently ~70 TB compressed) including the most useful variables is now <a class="reference external" href="https://registry.opendata.aws/ncar-cesm-lens/">freely available on AWS S3</a> thanks to the <a class="reference external" href="https://aws.amazon.com/opendata/open-data-sponsorship-program/">AWS Public Dataset Program</a>.</p>
 </div>
 <div class="section" id="authors">
@@ -363,8 +363,8 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <p><a class="reference external" href="https://github.com/NCAR/cesm-lens-aws/graphs/contributors">See contributors to the <code class="docutils literal notranslate"><span class="pre">NCAR/cesm-lens-aws</span></code> repository</a></p>
 <div class="section" id="contributors">
 <h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
-<a href="https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythiaCookbooks/cesm-lens-aws-cookbook" />
+<a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ProjectPythia/cesm-lens-aws-cookbook" />
 </a>
 </div>
 </div>
@@ -381,11 +381,11 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 <div class="section" id="running-the-notebooks">
 <h2>Running the Notebooks<a class="headerlink" href="#running-the-notebooks" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>You can either run the notebook using <a class="reference external" href="https://mybinder.org/">Binder</a> or on your local machine.</p>
+<p>You can either run the notebook using <a class="reference external" href="http://binder.mypythia.org">Binder</a> or on your local machine.</p>
 <div class="section" id="running-on-binder">
 <h3>Running on Binder<a class="headerlink" href="#running-on-binder" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <p>The simplest way to interact with a Jupyter Notebook is through
-<a class="reference external" href="https://mybinder.org/">Binder</a>, which enables the execution of a
+<a class="reference external" href="http://binder.mypythia.org">Binder</a>, which enables the execution of a
 <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a> in the cloud. The details of how this works are not
 important for now. All you need to know is how to launch a Pythia
 Cookbooks chapter via Binder. Simply navigate your mouse to
@@ -404,8 +404,8 @@ Jupyter</a>.</p>
 <p>If you are interested in running this material locally on your computer, you will need to follow this workflow:</p>
 <p>(Replace “cookbook-example” with the title of your cookbooks)</p>
 <ol>
-<li><p>Clone the <code class="docutils literal notranslate"><span class="pre">https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook</span></code> repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> git clone https://github.com/ProjectPythiaCookbooks/cesm-lens-aws-cookbook.git
+<li><p>Clone the <code class="docutils literal notranslate"><span class="pre">https://github.com/ProjectPythia/cesm-lens-aws-cookbook</span></code> repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> git clone https://github.com/ProjectPythia/cesm-lens-aws-cookbook.git
 </pre></div>
 </div>
 </li>
@@ -510,7 +510,7 @@ jupyter lab
         
           By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
         
-          Last updated on 11 August 2022.
+          Last updated on 9 December 2022.
         </p>
       </div>
     </div>
