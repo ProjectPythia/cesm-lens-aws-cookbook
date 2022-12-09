@@ -16,7 +16,9 @@ tags:
     - intake-esm
 
 execute:
-  execute_notebooks: auto
+  execute_notebooks: force
+  exclude_patterns:
+    - 'notebooks/example-workflows/key-figures.ipynb'
 
 # Add a few extensions to help with parsing content
 parse:
