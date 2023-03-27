@@ -26,9 +26,9 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-pythia-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
@@ -42,7 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -403,26 +403,26 @@ Jupyter</a>.</p>
 <h3>Running on Your Own Machine<a class="headerlink" href="#running-on-your-own-machine" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <p>If you are interested in running this material locally on your computer, you will need to follow this workflow:</p>
 <p>(Replace “cookbook-example” with the title of your cookbooks)</p>
-<ol>
+<ol class="arabic">
 <li><p>Clone the <code class="docutils literal notranslate"><span class="pre">https://github.com/ProjectPythia/cesm-lens-aws-cookbook</span></code> repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> git clone https://github.com/ProjectPythia/cesm-lens-aws-cookbook.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ProjectPythia/cesm-lens-aws-cookbook.git
 </pre></div>
 </div>
 </li>
 <li><p>Move into the <code class="docutils literal notranslate"><span class="pre">cesm-lens-aws-cookbook</span></code> directory</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cesm-lens-aws-cookbook
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>cesm-lens-aws-cookbook
 </pre></div>
 </div>
 </li>
 <li><p>Create and activate your conda environment from the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f environment.yml
-conda activate cla-cookbook-dev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+conda<span class="w"> </span>activate<span class="w"> </span>cla-cookbook-dev
 </pre></div>
 </div>
 </li>
 <li><p>Move into the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> directory and start up Jupyterlab</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> notebooks/
-jupyter lab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>notebooks/
+jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
 </li>
@@ -447,7 +447,7 @@ jupyter lab
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -510,7 +510,7 @@ jupyter lab
         
           By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
         
-          Last updated on 9 December 2022.
+          Last updated on 27 March 2023.
         </p>
       </div>
     </div>
