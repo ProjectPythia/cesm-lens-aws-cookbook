@@ -3,7 +3,7 @@
 # CESM LENS on AWS Cookbook
 
 [![nightly-build](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
-[![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks)
+[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks)
 
 This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask
 
@@ -32,12 +32,12 @@ There is one notebook in this section that describes how to access the CESM LENS
 This section contains an example of using this dataset to recreate two plots from a paper published in BAMS.
 
 ## Running the Notebooks
-You can either run the notebook using [Binder](http://binder.mypythia.org) or on your local machine.
+You can either run the notebook using [Binder](https://binder.projectpythia.org) or on your local machine.
 
 ### Running on Binder
 
 The simplest way to interact with a Jupyter Notebook is through
-[Binder](http://binder.mypythia.org), which enables the execution of a
+[Binder](https://binder.projectpythia.org), which enables the execution of a
 [Jupyter Book](https://jupyterbook.org) in the cloud. The details of how this works are not
 important for now. All you need to know is how to launch a Pythia
 Cookbooks chapter via Binder. Simply navigate your mouse to
