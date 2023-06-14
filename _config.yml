@@ -16,7 +16,9 @@ tags:
     - intake-esm
 
 execute:
+  # To execute notebooks via a binder instead, replace 'cache' with 'binder'
   execute_notebooks: force
+  allow_errors: False # cells with expected failures must set the `raises-exception` cell tag
   exclude_patterns:
     - 'notebooks/example-workflows/key-figures.ipynb'
 
@@ -35,7 +37,9 @@ parse:
 
 sphinx:
   config:
-    html_favicon: images/icons/favicon.ico
+    linkcheck_ignore: ["https://doi.org/*",]
+    nb_execution_raise_on_error: true  # raise exception in build if there are notebook errors
+    html_favicon: notebooks/images/icons/favicon.ico
     html_last_updated_fmt: '%-d %B %Y'
     html_theme: sphinx_pythia_theme
     html_permalinks_icon: '<i class="fas fa-link"></i>'
@@ -54,7 +58,7 @@ sphinx:
           icon: fab fa-youtube-square
           type: fontawesome
       launch_buttons:
-        binderhub_url: http://binder.mypythia.org
+        binderhub_url: https://binder.projectpythia.org
         notebook_interface: jupyterlab
       extra_navbar: |
         Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
