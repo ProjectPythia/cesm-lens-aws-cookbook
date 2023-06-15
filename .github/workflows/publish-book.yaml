@@ -11,6 +11,7 @@ jobs:
     uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
     with:
       environment_name: cookbook-dev
+      binder_nb_timeout: 3600 # one hour run time
 
   deploy:
     needs: build
