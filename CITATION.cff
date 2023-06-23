@@ -23,6 +23,6 @@ authors:
     website: https://github.com/r-ford
     affiliation: University at Albany (State University of New York)
   - name: "CESM LENS on AWS Cookbook contributors" # use the 'name' field to acknowledge organizations
-    website: "https://github.com/ProjectPythia/cookbook-template/graphs/contributors"
+    website: "https://github.com/ProjectPythia/cesm-lens-aws-cookbook/graphs/contributors"
 title: "CESM LENS on AWS Cookbook"
 abstract: "Notebooks developed to demonstrate analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask."
