@@ -9,7 +9,7 @@ authors:
     affiliation: University at Albany (State University of New York) # optional
   - family-names: Banihirwe
     given-names: Anderson
-    https://orcid.org/0000-0001-6583-571X
+    orcid: https://orcid.org/0000-0001-6583-571X
     website: https://github.com/andersy005
   - family-names: Bonnlander
     given-names: Brian
@@ -21,6 +21,7 @@ authors:
   - family-names: Henderson
     given-names: Scott
     website: https://github.com/scotthq
+    orcid: https://orcid.org/0000-0003-0624-4965 
   - name: "CESM LENS on AWS Cookbook contributors" # use the 'name' field to acknowledge organizations
     website: "https://github.com/ProjectPythia/cesm-lens-aws-cookbook/graphs/contributors"
 title: "CESM LENS on AWS Cookbook"
