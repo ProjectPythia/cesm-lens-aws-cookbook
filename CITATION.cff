@@ -16,8 +16,9 @@ authors:
     website: https://github.com/bonnland
   - family-names: de La Beaujardière
     given-names: Jeff
-    website: https://github.com/jeffdlb
-    affiliation: UCAR/NCAR
+    website: https://staff.ucar.edu/users/jeffdlb
+    orcid: https://orcid.org/0000-0002-1001-9210
+    affiliation: Former Director, NCAR/CISL Information Systems Division
   - family-names: Henderson
     given-names: Scott
     website: https://github.com/scotthq
