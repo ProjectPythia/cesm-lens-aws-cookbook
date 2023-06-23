@@ -4,16 +4,7 @@
 title: CESM LENS on AWS Cookbook
 author: the <a href="https://projectpythia.org/">Project Pythia</a> Community
 logo: notebooks/images/logos/pythia_logo-white-rtext.svg
-email: projectpythia@ucar.edu
-copyright: '2022'
-
-description: Notebooks developed to demonstrate analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask.
-thumbnail: thumbnail.png
-tags:
-  domains:
-    - climate
-  packages:
-    - intake-esm
+copyright: "2022"
 
 execute:
   # To execute notebooks via a Binder instead, replace 'cache' with 'binder'
@@ -38,7 +29,7 @@ sphinx:
     linkcheck_ignore: ["https://doi.org/*"] # don't run link checker on DOI links since they are immutable
     nb_execution_raise_on_error: true # raise exception in build if there are notebook errors (this flag is ignored if building on binder)
     html_favicon: notebooks/images/icons/favicon.ico
-    html_last_updated_fmt: '%-d %B %Y'
+    html_last_updated_fmt: "%-d %B %Y"
     html_theme: sphinx_pythia_theme
     html_permalinks_icon: '<i class="fas fa-link"></i>'
     html_theme_options:
