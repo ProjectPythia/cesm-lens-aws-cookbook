@@ -4,6 +4,7 @@
 
 [![nightly-build](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
 [![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks)
+[![DOI](https://zenodo.org/badge/509240024.svg)](https://zenodo.org/badge/latestdoi/509240024)
 
 This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask
 
@@ -26,12 +27,15 @@ The total LENS data volume is ~500 TB, and is traditionally accessible through t
 ## Structure
 
 ### Foundations
+
 There is one notebook in this section that describes how to access the CESM LENS data from AWS using Intake ESM. It includes examples of using an enhanced catalog.
 
 ### Example workflows
+
 This section contains an example of using this dataset to recreate two plots from a paper published in BAMS.
 
 ## Running the Notebooks
+
 You can either run the notebook using [Binder](https://binder.projectpythia.org) or on your local machine.
 
 ### Running on Binder
@@ -52,26 +56,28 @@ a live Jupyter notebook are described in [Getting Started with
 Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter.html).
 
 ### Running on Your Own Machine
+
 If you are interested in running this material locally on your computer, you will need to follow this workflow:
 
-(Replace "cookbook-example" with the title of your cookbooks)   
+(Replace "cookbook-example" with the title of your cookbooks)
 
 1. Clone the `https://github.com/ProjectPythia/cesm-lens-aws-cookbook` repository:
 
    ```bash
     git clone https://github.com/ProjectPythia/cesm-lens-aws-cookbook.git
-    ```  
+   ```
+
 1. Move into the `cesm-lens-aws-cookbook` directory
-    ```bash
-    cd cesm-lens-aws-cookbook
-    ```  
+   ```bash
+   cd cesm-lens-aws-cookbook
+   ```
 1. Create and activate your conda environment from the `environment.yml` file
-    ```bash
-    conda env create -f environment.yml
-    conda activate cla-cookbook-dev
-    ```  
-1.  Move into the `notebooks` directory and start up Jupyterlab
-    ```bash
-    cd notebooks/
-    jupyter lab
-    ```
+   ```bash
+   conda env create -f environment.yml
+   conda activate cla-cookbook-dev
+   ```
+1. Move into the `notebooks` directory and start up Jupyterlab
+   ```bash
+   cd notebooks/
+   jupyter lab
+   ```
