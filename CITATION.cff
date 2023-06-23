@@ -7,21 +7,20 @@ authors:
     orcid: https://orcid.org/0000-0002-9961-3821 # optional
     website: https://github.com/brian-rose # optional
     affiliation: University at Albany (State University of New York) # optional
-  - family-names: Kent
-    given-names: Julia
-    orcid: https://orcid.org/0000-0002-5611-8986
-    website: https://github.com/jukent
+  - family-names: Banihirwe
+    given-names: Anderson
+    https://orcid.org/0000-0001-6583-571X
+    website: https://github.com/andersy005
+  - family-names: Bonnlander
+    given-names: Brian
+    website: https://github.com/bonnland
+  - family-names: de La Beaujardière
+    given-names: Jeff
+    website: https://github.com/jeffdlb
     affiliation: UCAR/NCAR
-  - family-names: Tyle
-    given-names: Kevin
-    orcid: https://orcid.org/0000-0001-5249-9665
-    website: https://github.com/ktyle
-    affiliation: University at Albany (State University of New York)
-  - family-names: Ford
-    given-names: Robert R.
-    orcid: https://orcid.org/0000-0001-5483-4965
-    website: https://github.com/r-ford
-    affiliation: University at Albany (State University of New York)
+  - family-names: Henderson
+    given-names: Scott
+    website: https://github.com/scotthq
   - name: "CESM LENS on AWS Cookbook contributors" # use the 'name' field to acknowledge organizations
     website: "https://github.com/ProjectPythia/cesm-lens-aws-cookbook/graphs/contributors"
 title: "CESM LENS on AWS Cookbook"
