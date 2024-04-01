@@ -2,7 +2,7 @@ name: cla-cookbook-dev
 channels:
   - conda-forge
 dependencies:
-  - python=3.9
+  - python>=3.9
   - jupyter-book
   - jupyterlab
   - matplotlib
@@ -16,6 +16,4 @@ dependencies:
   - s3fs
   - cmaps
   - cartopy
-  - pip
-  - pip:
-      - sphinx-pythia-theme
+  - sphinx-pythia-theme

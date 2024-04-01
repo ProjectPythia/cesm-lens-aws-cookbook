@@ -8,4 +8,3 @@ jobs:
     with:
       environment_name: cookbook-dev
       artifact_name: book-zip-${{ github.event.number }}
-      binder_nb_timeout: 3600 # one hour run time
