@@ -17,3 +17,4 @@ dependencies:
   - cmaps
   - cartopy
   - sphinx-pythia-theme
+  - zarr
