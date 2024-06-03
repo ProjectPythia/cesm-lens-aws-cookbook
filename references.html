@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CESM LENS on AWS Cookbook &#8212; CESM LENS on AWS Cookbook</title>
+    <title>References &#8212; CESM LENS on AWS Cookbook</title>
   
   
   
@@ -71,11 +71,11 @@
                 gtag('config', 'G-T52X8HNYE8');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'references';</script>
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How to Cite This Cookbook" href="notebooks/how-to-cite.html" />
+    <link rel="prev" title="Reproducing Key Figures from Kay et al. (2015)" href="notebooks/example-workflows/key-figures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
     <meta name="docbuild:last-update" content="3 June 2024"/>
@@ -219,10 +219,6 @@
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -230,8 +226,6 @@
     <div class="bd-container__inner bd-page-width">
         
         
-        
-          
         
         <div class="bd-sidebar-primary bd-sidebar">
           
@@ -357,8 +351,8 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
                     CESM LENS on AWS Cookbook
                 </a>
             </li>
@@ -376,8 +370,8 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/example-workflows/key-figures.html">Reproducing Key Figures from Kay et al. (2015)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">References</a></li>
 </ul>
 
     </div>
@@ -407,96 +401,23 @@
 <div id="searchbox"></div>
                   <article class="bd-article">
                     
-  <a class="reference internal image-reference" href="_images/NSF-NCAR_Lockup-UCAR-Dark_102523.svg"><img alt="NCAR logo" src="_images/NSF-NCAR_Lockup-UCAR-Dark_102523.svg" width="700" /></a>
-<section class="tex2jax_ignore mathjax_ignore" id="cesm-lens-on-aws-cookbook">
-<h1>CESM LENS on AWS Cookbook<a class="headerlink" href="#cesm-lens-on-aws-cookbook" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
-<p><a class="reference external" href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml"><img alt="nightly-build" src="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg" /></a>
-<a class="reference external" href="https://binder.projectpythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks"><img alt="Binder" src="https://binder.projectpythia.org/badge_logo.svg" /></a>
-<a class="reference external" href="https://zenodo.org/badge/latestdoi/509240024"><img alt="DOI" src="https://zenodo.org/badge/509240024.svg" /></a></p>
-<p>This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask</p>
-<section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>The <a class="reference external" href="https://ncar.ucar.edu/">National Center for Atmospheric Research (NCAR)</a> Community Earth System Model Large Ensemble (<a class="reference external" href="https://www.cesm.ucar.edu/community-projects/lens">CESM LENS</a>) dataset includes a 40-member ensemble of climate simulations for the period 1920-2100. All model runs were subject to the same radiative forcing scenario: historical up to 2005, and RCP8.5 thereafter. RCP8.5 - Representative Concentration Pathway 8.5 - refers to the worst-case scenario considered in the <a class="reference external" href="https://www.ipcc.ch/report/ar5/wg1/">Fifth Assessment Report of the Intergovernmental Panel on Climate Change (IPCC AR5)</a>. Each of the 40 runs begins from a slightly different initial atmospheric state (created by randomly perturbing temperatures at the level of round-off error). The data comprise both surface (2D) and volumetric (3D) variables in the atmosphere, ocean, land, and ice domains.</p>
-<p>The total LENS data volume is ~500 TB, and is traditionally accessible through the NCAR Climate Data Gateway (<a class="reference external" href="https://www.earthsystemgrid.org/dataset/ucar.cgd.ccsm4.CESM_CAM5_BGC_LE.html">CDG</a>) for download or via web services. A subset (currently ~70 TB compressed) including the most useful variables is now <a class="reference external" href="https://registry.opendata.aws/ncar-cesm-lens/">freely available on AWS S3</a> thanks to the <a class="reference external" href="https://aws.amazon.com/opendata/open-data-sponsorship-program/">AWS Public Dataset Program</a>.</p>
-</section>
-<section id="authors">
-<h2>Authors<a class="headerlink" href="#authors" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p><a class="reference external" href="https://github.com/NCAR/cesm-lens-aws/graphs/contributors">See contributors to the <code class="docutils literal notranslate"><span class="pre">NCAR/cesm-lens-aws</span></code> repository</a></p>
-<section id="contributors">
-<h3>Contributors<a class="headerlink" href="#contributors" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythia/cesm-lens-aws-cookbook" />
-</a>
-</section>
-</section>
-<section id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<section id="foundations">
-<h3>Foundations<a class="headerlink" href="#foundations" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>There is one notebook in this section that describes how to access the CESM LENS data from AWS using Intake ESM. It includes examples of using an enhanced catalog.</p>
-</section>
-<section id="example-workflows">
-<h3>Example workflows<a class="headerlink" href="#example-workflows" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>This section contains an example of using this dataset to recreate two plots from a paper published in BAMS.</p>
-</section>
-</section>
-<section id="running-the-notebooks">
-<h2>Running the Notebooks<a class="headerlink" href="#running-the-notebooks" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>You can either run the notebook using <a class="reference external" href="https://binder.projectpythia.org">Binder</a> or on your local machine.</p>
-<section id="running-on-binder">
-<h3>Running on Binder<a class="headerlink" href="#running-on-binder" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>The simplest way to interact with a Jupyter Notebook is through
-<a class="reference external" href="https://binder.projectpythia.org">Binder</a>, which enables the execution of a
-<a class="reference external" href="https://jupyterbook.org">Jupyter Book</a> in the cloud. The details of how this works are not
-important for now. All you need to know is how to launch a Pythia
-Cookbooks chapter via Binder. Simply navigate your mouse to
-the top right corner of the book chapter you are viewing and click
-on the rocket ship icon, (see figure below), and be sure to select
-“launch Binder”. After a moment you should be presented with a
-notebook that you can interact with. I.e. you’ll be able to execute
-and even change the example programs. You’ll see that the code cells
-have no output at first, until you execute them by pressing
-<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">Enter</kbd>. Complete details on how to interact with
-a live Jupyter notebook are described in <a class="reference external" href="https://foundations.projectpythia.org/foundations/getting-started-jupyter.html">Getting Started with
-Jupyter</a>.</p>
-</section>
-<section id="running-on-your-own-machine">
-<h3>Running on Your Own Machine<a class="headerlink" href="#running-on-your-own-machine" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>If you are interested in running this material locally on your computer, you will need to follow this workflow:</p>
-<p>(Replace “cookbook-example” with the title of your cookbooks)</p>
-<ol class="arabic">
-<li><p>Clone the <code class="docutils literal notranslate"><span class="pre">https://github.com/ProjectPythia/cesm-lens-aws-cookbook</span></code> repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ProjectPythia/cesm-lens-aws-cookbook.git
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>References<a class="headerlink" href="#references" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
+<div class="docutils container" id="id1">
+<div role="list" class="citation-list">
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>J. E. Kay, C. Deser, A. Phillips, A. Mai, C. Hannay, G. Strand, J. M. Arblaster, S. C. Bates, G. Danabasoglu, J. Edwards, M. Holland, P. Kushner, J.-F. Lamarque, D. Lawrence, K. Lindsday, A. Middleton, E. Munoz, R. Neale, K. Oleson, L. Polvani, and M. Vertenstein. The community earth system model (CESM) large ensemble project. <em>Bull. Amer. Meteor. Soc.</em>, 2015. <a class="reference external" href="https://doi.org/10.1175/BAMS-D-13-00255.1">doi:10.1175/BAMS-D-13-00255.1</a>.</p>
 </div>
-</li>
-<li><p>Move into the <code class="docutils literal notranslate"><span class="pre">cesm-lens-aws-cookbook</span></code> directory</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>cesm-lens-aws-cookbook
-</pre></div>
+<div class="citation" id="id2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>N. Lenssen, G. Schmidt, J. Hansen, M. Menne, A. Persin, R. Ruedy, and D. Zyss. Improvements in the gistemp uncertainty model. <em>Journal of Geophysical Research: Atmospheres</em>, 124(12):6307–6326, 2019. <a class="reference external" href="https://doi.org/10.1029/2018JD029522">doi:10.1029/2018JD029522</a>.</p>
 </div>
-</li>
-<li><p>Create and activate your conda environment from the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
-conda<span class="w"> </span>activate<span class="w"> </span>cla-cookbook-dev
-</pre></div>
+<div class="citation" id="id3" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>Colin P. Morice, John J. Kennedy, Nick A. Rayner, and Phil D. Jones. Quantifying uncertainties in global and regional temperature change using an ensemble of observational estimates: the HadCRUT4 data set. <em>J. Geophys. Res. Atmos.</em>, 2012. URL: <a class="reference external" href="https://doi.org/10.1029/2011JD017187">https://doi.org/10.1029/2011JD017187</a>, <a class="reference external" href="https://doi.org/10.1029/2011JD017187">doi:10.1029/2011JD017187</a>.</p>
 </div>
-</li>
-<li><p>Move into the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> directory and start up Jupyterlab</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>notebooks/
-jupyter<span class="w"> </span>lab
-</pre></div>
 </div>
-</li>
-</ol>
-</section>
-</section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -530,14 +451,14 @@ jupyter<span class="w"> </span>lab
                   <footer class="prev-next-footer">
                     
 <div class="prev-next-area">
-    <a class="right-next"
-       href="notebooks/how-to-cite.html"
-       title="next page">
+    <a class="left-prev"
+       href="notebooks/example-workflows/key-figures.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How to Cite This Cookbook</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reproducing Key Figures from Kay et al. (2015)</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                   </footer>
@@ -546,35 +467,6 @@ jupyter<span class="w"> </span>lab
 
               
               
-                
-                  <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authors">Authors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors">Contributors</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations">Foundations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-workflows">Example workflows</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-notebooks">Running the Notebooks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-binder">Running on Binder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-your-own-machine">Running on Your Own Machine</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
                 
               
 
@@ -627,7 +519,7 @@ jupyter<span class="w"> </span>lab
       
       
       
-      <li><a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/edit/main/README.md" target="_blank"
+      <li><a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/edit/main/references.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -644,7 +536,7 @@ jupyter<span class="w"> </span>lab
       
       
       
-      <li><a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/issues/new?title=Issue%20on%20page%20%2Freferences.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -674,7 +566,7 @@ jupyter<span class="w"> </span>lab
       
       
       
-      <li><a href="_sources/README.md" target="_blank"
+      <li><a href="_sources/references.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -745,9 +637,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
