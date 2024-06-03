@@ -10,3 +10,6 @@ parts:
   - caption: Example workflows
     chapters:
       - file: notebooks/example-workflows/key-figures.ipynb
+  - caption: Appendix
+    chapters:
+      - file: references
