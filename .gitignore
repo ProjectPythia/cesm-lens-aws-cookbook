@@ -134,3 +134,6 @@ dmypy.json
 
 # Do not track netCDF data files
 .nc
+
+# MyST build outputs
+_build
