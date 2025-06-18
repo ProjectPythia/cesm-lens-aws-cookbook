@@ -1,4 +1,4 @@
-name: cla-myst-cookbook-dev
+name: cla-cookbook-dev
 channels:
   - conda-forge
 dependencies:
@@ -16,6 +16,5 @@ dependencies:
   - s3fs
   - cmaps
   - cartopy
-  - sphinx-pythia-theme
   - zarr
   - mystmd
