@@ -1,6 +1,6 @@
-<img src="notebooks/images/logos/NSF-NCAR_Lockup-UCAR-Dark_102523.svg" alt="NCAR logo" width="700"/>
-
 # CESM LENS on AWS Cookbook
+
+<img src="notebooks/images/logos/NSF-NCAR_Lockup-UCAR-Dark_102523.svg" alt="NCAR logo" width="700"/>
 
 [![nightly-build](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
 [![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks)
