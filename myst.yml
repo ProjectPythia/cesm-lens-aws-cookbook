@@ -1,14 +1,14 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 extends:
-  - https://raw.githubusercontent.com/projectpythia-mystmd/pythia-config/main/pythia.yml
+  - https://raw.githubusercontent.com/projectpythia/pythia-config/main/pythia.yml
 project:
   id: 8ae3f9b8-fa17-4538-bbda-352888ee892d
   # title:
   # description:
   # keywords: []
   # authors: []
-  github: https://github.com/projectpythia-mystmd/cesm-lens-aws-cookbook
+  github: https://github.com/projectpythia/cesm-lens-aws-cookbook
   # To autogenerate a Table of Contents, run "myst init --write-toc"
   authors:
     - name: Anderson Banihirwe
@@ -34,7 +34,7 @@ project:
 
   jupyter:
       binder:
-        repo: projectpythia-mystmd/cesm-lens-aws-cookbook  
+        repo: projectpythia/cesm-lens-aws-cookbook  
 site:
   template: book-theme
   # options:
