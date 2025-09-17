@@ -4,7 +4,7 @@ extends:
   - https://raw.githubusercontent.com/projectpythia/pythia-config/main/pythia.yml
 project:
   id: 8ae3f9b8-fa17-4538-bbda-352888ee892d
-  # title:
+  title: CESM LENS on AWS Cookbook
   # description:
   # keywords: []
   # authors: []
