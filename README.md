@@ -2,10 +2,11 @@
 
 <img src="notebooks/images/logos/NSF-NCAR_Lockup-UCAR-Dark_102523.svg" alt="NCAR logo" width="700"/>
 
-[![nightly-build](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml)
-[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks)
-[![DOI](https://zenodo.org/badge/509240024.svg)](https://zenodo.org/badge/latestdoi/509240024)
-
+<div style="display: flex; gap: 8px; align-items: center;">
+  <a href="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml"><img src="https://github.com/ProjectPythia/cesm-lens-aws-cookbook/actions/workflows/nightly-build.yaml/badge.svg" alt="nightly-build"/></a>
+  <a href="https://binder.projectpythia.org/v2/gh/ProjectPythia/cesm-lens-aws-cookbook/main?labpath=notebooks"><img src="https://binder.projectpythia.org/badge_logo.svg" alt="Binder"/></a>
+  <a href="https://zenodo.org/records/8088114"><img src="https://zenodo.org/badge/509240024.svg" alt="DOI"/></a>
+</div>
 This Project Pythia Cookbook covers analysis of CESM LENS data publicly available on Amazon S3 (us-west-2 region) using Xarray and Dask
 
 ## Motivation
