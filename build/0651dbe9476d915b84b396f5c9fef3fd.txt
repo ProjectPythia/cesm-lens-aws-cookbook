@@ -1,16 +1,16 @@
 [31m---------------------------------------------------------------------------[39m
 [31mContentLengthError[39m                        Traceback (most recent call last)
-[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/client_proto.py:144[39m, in [36mconnection_lost[39m[34m()[39m
-[32m    143[39m [38;5;28;01mtry[39;00m:
-[32m--> [39m[32m144[39m     uncompleted = [38;5;28mself[39m._parser.feed_eof()
-[32m    145[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m underlying_exc:
+[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/client_proto.py:143[39m, in [36mconnection_lost[39m[34m()[39m
+[32m    142[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m143[39m     uncompleted = [38;5;28mself[39m._parser.feed_eof()
+[32m    144[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m underlying_exc:
 
-[36mFile [39m[32maiohttp/_http_parser.pyx:546[39m
-[32m--> [39m[32m546[39m     [38;5;28;01mdef[39;00m feed_eof(self):
-[32m    547[39m         cdef bytes desc
+[36mFile [39m[32maiohttp/_http_parser.pyx:578[39m
+[32m--> [39m[32m578[39m     [38;5;28;01mdef[39;00m feed_eof(self):
+[32m    579[39m         cdef bytes desc
 
 [31mContentLengthError[39m: 400, message:
-  Not enough data to satisfy content length header.
+  Not enough data to satisfy content length header (received 16893 of 26710647 bytes).
 
 The above exception was the direct cause of the following exception:
 
@@ -322,26 +322,26 @@ The above exception was the direct cause of the following exception:
 [32m     64[39m         endpoint_url=[38;5;28mself[39m.__wrapped__.url, error=e
 [32m     65[39m     )
 
-[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/streams.py:446[39m, in [36mread[39m[34m()[39m
-[32m    444[39m blocks = []
-[32m    445[39m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
-[32m--> [39m[32m446[39m     block = [38;5;28;01mawait[39;00m [38;5;28mself[39m.readany()
-[32m    447[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m block:
-[32m    448[39m         [38;5;28;01mbreak[39;00m
+[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/streams.py:437[39m, in [36mread[39m[34m()[39m
+[32m    435[39m blocks = []
+[32m    436[39m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[32m--> [39m[32m437[39m     block = [38;5;28;01mawait[39;00m [38;5;28mself[39m.readany()
+[32m    438[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m block:
+[32m    439[39m         [38;5;28;01mbreak[39;00m
 
-[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/streams.py:468[39m, in [36mreadany[39m[34m()[39m
-[32m    464[39m [38;5;66;03m# TODO: should be `if` instead of `while`[39;00m
-[32m    465[39m [38;5;66;03m# because waiter maybe triggered on chunk end,[39;00m
-[32m    466[39m [38;5;66;03m# without feeding any data[39;00m
-[32m    467[39m [38;5;28;01mwhile[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._buffer [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._eof:
-[32m--> [39m[32m468[39m     [38;5;28;01mawait[39;00m [38;5;28mself[39m._wait([33m"[39m[33mreadany[39m[33m"[39m)
-[32m    470[39m [38;5;28;01mreturn[39;00m [38;5;28mself[39m._read_nowait(-[32m1[39m)
+[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/streams.py:460[39m, in [36mreadany[39m[34m()[39m
+[32m    456[39m [38;5;66;03m# TODO: should be `if` instead of `while`[39;00m
+[32m    457[39m [38;5;66;03m# because waiter maybe triggered on chunk end,[39;00m
+[32m    458[39m [38;5;66;03m# without feeding any data[39;00m
+[32m    459[39m [38;5;28;01mwhile[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._buffer [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._eof:
+[32m--> [39m[32m460[39m     [38;5;28;01mawait[39;00m [38;5;28mself[39m._wait([33m"[39m[33mreadany[39m[33m"[39m)
+[32m    462[39m [38;5;28;01mreturn[39;00m [38;5;28mself[39m._read_nowait(-[32m1[39m)
 
-[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/streams.py:372[39m, in [36m_wait[39m[34m()[39m
-[32m    370[39m [38;5;28;01mtry[39;00m:
-[32m    371[39m     [38;5;28;01mwith[39;00m [38;5;28mself[39m._timer:
-[32m--> [39m[32m372[39m         [38;5;28;01mawait[39;00m waiter
-[32m    373[39m [38;5;28;01mfinally[39;00m:
-[32m    374[39m     [38;5;28mself[39m._waiter = [38;5;28;01mNone[39;00m
+[36mFile [39m[32m~/micromamba/envs/cla-cookbook-dev/lib/python3.11/site-packages/aiohttp/streams.py:365[39m, in [36m_wait[39m[34m()[39m
+[32m    363[39m [38;5;28;01mtry[39;00m:
+[32m    364[39m     [38;5;28;01mwith[39;00m [38;5;28mself[39m._timer:
+[32m--> [39m[32m365[39m         [38;5;28;01mawait[39;00m waiter
+[32m    366[39m [38;5;28;01mfinally[39;00m:
+[32m    367[39m     [38;5;28mself[39m._waiter = [38;5;28;01mNone[39;00m
 
-[31mClientPayloadError[39m: Response payload is not completed: <ContentLengthError: 400, message='Not enough data to satisfy content length header.'>. ConnectionResetError(104, 'Connection reset by peer')
+[31mClientPayloadError[39m: Response payload is not completed: <ContentLengthError: 400, message='Not enough data to satisfy content length header (received 16893 of 26710647 bytes).'>. ConnectionResetError(104, 'Connection reset by peer')
