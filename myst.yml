@@ -28,9 +28,6 @@ project:
     - title: Example workflows
       children:
         - file: notebooks/example-workflows/key-figures.ipynb
-    - title: Appendix
-      children:
-        - file: references.md
 
   jupyter:
       binder:
