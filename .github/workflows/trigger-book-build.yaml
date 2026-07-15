@@ -9,4 +9,5 @@ jobs:
     with:
       artifact_name: book-zip-${{ github.event.number }}
       base_url: '/${{ github.event.repository.name }}/_preview/${{ github.event.number }}'
+      timeout_minutes: 60
       # Other input options are possible, see ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml
