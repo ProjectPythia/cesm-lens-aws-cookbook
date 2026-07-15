@@ -4,7 +4,8 @@ on:
 
 jobs:
   build:
-    uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
+    # uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
+    uses: brian-rose/cookbook-actions/.github/workflows/build-book.yaml@timeout-config  # temporary for testing
     with:
       artifact_name: book-zip-${{ github.event.number }}
       base_url: '/${{ github.event.repository.name }}/_preview/${{ github.event.number }}'
