@@ -2,8 +2,7 @@ name: cla-cookbook-dev
 channels:
   - conda-forge
 dependencies:
-  - python<3.12
-  - jupyter-book
+  - python
   - jupyterlab
   - matplotlib
   - numpy
@@ -18,3 +17,4 @@ dependencies:
   - cartopy
   - zarr
   - mystmd
+  - jupyterlab-myst
